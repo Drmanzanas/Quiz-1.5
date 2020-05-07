@@ -13,86 +13,93 @@
         <span class="flechita-abajo"></span>
     </header>
     <main class="quiz-game">
-        <form action="#" method="POST" class="quiz-form">
+        <form action="#" method="POST" class="quiz-form" name="preguntas_quiz">
             <fieldset class="quiz-fieldset">
                 <legend class="legend-quiz pregunta-uno">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <label for="num1" class="label-bg-first">Uno</label>
+                <input type="radio" id="num1" name="cantidad_anillos" value="uno">
+                <label for="num2" class="label-bg-second">Quince</label>
+                <input type="radio" id="num2" name="cantidad_anillos" value="quince">
+                <label class="label-bg-third" for="num3">Nueve</label>
+                <input type="radio" id="num3" name="cantidad_anillos" value="nueve">
+                <label class="label-bg-forth" for="num4">siete</label>
+                <input type="radio" id="num4" name="cantidad_anillos" value="siete">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-dos">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-dos">¿Cual es el nombre del lider de los autobots en transformers?</legend>
+                <label for="bee" class="label-bg-first">Bumblebee</label>
+                <input type="radio" id="bee" name="lider_transformers" value="bumblebee">
+                <label for="megatron" class="label-bg-second">Megatron</label>
+                <input type="radio" id="megatron" name="lider_transformers" value="megatron">
+                <label class="label-bg-third" for="optimus">Optimus</label>
+                <input type="radio" id="optimus" name="lider_transformers" value="optimus">
+                <label class="label-bg-forth" for="decepticon">Decepticon</label>
+                <input type="radio" id="decepticon" name="lider_transformers" value="decepticon">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-tres">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-tres">¿Como se llama el quinto juego de la saga de 'The elder scrolls'?</legend>
+                <label for="oblivion" class="label-bg-first">Oblivion</label>
+                <input type="radio" id="oblivion" name="elder_scrolls" value="oblivion">
+                <label for="skyrim" class="label-bg-second">Skyrim</label>
+                <input type="radio" id="skyrim" name="elder_scrolls" value="skyrim">
+                <label class="label-bg-third" for="morrowind">Morrowind</label>
+                <input type="radio" id="morrowind" name="elder_scrolls" value="morrowind">
+                <label class="label-bg-forth" for="daggerfall">DaggerFall</label>
+                <input type="radio" id="daggerfall" name="elder_scrolls" value="daggerfall">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-cuatro">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-cuatro">¿Que personaje mata a Modi(hijo de thor) en el 'God of War 4'?</legend>
+                <label for="atreus" class="label-bg-first">Atreus</label>
+                <input type="radio" id="atreus" name="god_of_war" value="atreus">
+                <label for="baldur" class="label-bg-second">Baldur</label>
+                <input type="radio" id="baldur" name="god_of_war" value="baldur">
+                <label class="label-bg-third" for="kratos">Kratos</label>
+                <input type="radio" id="kratos" name="god_of_war" value="kratos">
+                <label class="label-bg-forth" for="mimir">Mímir</label>
+                <input type="radio" id="mimir" name="god_of_war" value="mimir">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-cinco">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-cinco">¿Completa la frase de Yoda 'El mejor profesor, el ... es'?</legend>
+                <label for="leer" class="label-bg-first">Leer</label>
+                <input type="radio" id="leer" name="frase_yoda" value="leer">
+                <label for="fracaso" class="label-bg-second">Fracaso</label>
+                <input type="radio" id="fracaso" name="frase_yoda" value="fracaso">
+                <label class="label-bg-third" for="entrenar">Entrenar</label>
+                <input type="radio" id="entrenar" name="frase_yoda" value="entrenar">
+                <label class="label-bg-forth" for="observar">Observar</label>
+                <input type="radio" id="observar" name="frase_yoda" value="observar">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-seis">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-seis">¿Segun Oogway que es lo unico que no se puede controlar?</legend>
+                <label for="paciencia" class="label-bg-first">La Paciencia</label>
+                <input type="radio" id="paciencia" name="kung_fu_panda_frase" value="paciencia">
+                <label for="tiempo" class="label-bg-second">El Tiempo</label>
+                <input type="radio" id="tiempo" name="kung_fu_panda_frase" value="tiempo">
+                <label class="label-bg-third" for="destino">El Destino</label>
+                <input type="radio" id="destino" name="kung_fu_panda_frase" value="destino">
+                <label class="label-bg-forth" for="personas">Las Personas</label>
+                <input type="radio" id="personas" name="kung_fu_panda_frase" value="personas">
+                <button type="button">Siguiente</button>
             </fieldset>
             <fieldset class="quiz-fieldset">
-                <legend class="legend-quiz pregunta-siete">¿Cuantos anillos se hicieron para los enanos en la trilogia de 'El señor de los anillos'?</legend>
-                <label for="num1">Uno</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Quince</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">Nueve</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
-                <label for="num1">siete</label>
-                <input type="checkbox" id="num1" name="cantidad_anillos">
+                <legend class="legend-quiz pregunta-siete">Aproximadamente, ¿cuántos huesos tiene el cuerpo humano?</legend>
+                <label for="trecientosnoventa" class="label-bg-first">390</label>
+                <input type="radio" id="trecientosnoventa" name="huesos_del_humano" value="390">
+                <label for="sesentaysiete" class="label-bg-second">67</label>
+                <input type="radio" id="sesentaysiete" name="huesos_del_humano" value="67">
+                <label class="label-bg-third" for="doscientosocho">208</label>
+                <input type="radio" id="doscientosocho" name="huesos_del_humano" value="208">
+                <label class="label-bg-forth" for="cientocuarentaycinco">145</label>
+                <input type="radio" id="cientocuarentaycinco" name="huesos_del_humano" value="145">
+                <button type="submit">Comprobar!!</button>
             </fieldset>
-            <button type="submit">Comprobar!!</button>
         </form>
     </main>
+    <script src="scripts.js"></script>
 </body>
 </html>
