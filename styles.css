@@ -11,6 +11,7 @@ body,
 html {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 
@@ -93,20 +94,22 @@ html {
     height: 3vw;
     width: 3vw;
     transform: rotate(45deg);
+    cursor: pointer;
 }
 
 .quiz-game {
-    height: 100vh;
+    height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .quiz-form {
-    height: 700vh;
+    height: 4900px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -115,19 +118,18 @@ html {
     padding: 0;
     position: relative;
     top: 0;
-    animation: subir 10s linear infinite;
 }
 
 
 .quiz-fieldset {
-    height: 10%;
+    height: 700px;
     border: none;
     background-color: #0b132b;
     padding: 0;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
-    margin: auto 0;
+    margin: 40px 0;
 }
 
 .legend-quiz {
@@ -144,8 +146,13 @@ input[type="radio"] {
     display: none;
 }
 
+input:checked + label {
+    color: blue;
+    font-size:30px;
+}
+
 label {
-    width: 100%;
+    width: 99%;
     border: 1px solid #81b29a;
     height: 20%;
     text-align: center;
@@ -175,7 +182,7 @@ label {
 }
 
 label:hover {
-    opacity: .4;
+    opacity: .8;
     font-size: 30px;
 }
 
@@ -188,15 +195,30 @@ button {
     font-size: 20px;
     font-family: var(--secondary-quiz-font);
     margin: 10px auto;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #20423e;
 }
 
 
 
-/* @media screen and (min-width: 700px) {
+@media screen and (min-width: 768px) {
     .quiz-fieldset {
-        flex-direction: row;
+        flex-flow: row wrap;
+        padding: 0 15px; 
     }
     label {
         width: 45vw;
     }
-} */
+}
+
+@media screen and (min-width: 1366px) {
+    label {
+        width: 610px;
+    }
+    button {
+        width: 25vw;
+    }
+}
