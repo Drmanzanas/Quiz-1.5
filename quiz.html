@@ -22,7 +22,7 @@
                 <label for="num2" class="label-bg-second">Quince</label>
                 <input type="radio" id="num3" name="cantidad_anillos" value="nueve">
                 <label class="label-bg-third" for="num3">Nueve</label>
-                <input type="radio" id="num4" name="cantidad_anillos" value="siete">
+                <input type="radio" id="num4" name="cantidad_anillos" value="siete" class="respuestaCorrecta">
                 <label class="label-bg-forth" for="num4">siete</label>
                 <button type="button" class="first-button button-siguiente">Siguiente</button>
             </fieldset>
@@ -32,7 +32,7 @@
                 <label for="bee" class="label-bg-first">Bumblebee</label>
                 <input type="radio" id="megatron" name="lider_transformers" value="megatron">
                 <label for="megatron" class="label-bg-second">Megatron</label>
-                <input type="radio" id="optimus" name="lider_transformers" value="optimus">
+                <input type="radio" id="optimus" name="lider_transformers" value="optimus" class="respuestaCorrecta">
                 <label class="label-bg-third" for="optimus">Optimus</label>
                 <input type="radio" id="decepticon" name="lider_transformers" value="decepticon">
                 <label class="label-bg-forth" for="decepticon">Decepticon</label>
@@ -43,7 +43,7 @@
                 <legend class="legend-quiz pregunta-tres">¿Como se llama el quinto juego de la saga de 'The elder scrolls'?</legend>
                 <input type="radio" id="oblivion" name="elder_scrolls" value="oblivion">
                 <label for="oblivion" class="label-bg-first">Oblivion</label>
-                <input type="radio" id="skyrim" name="elder_scrolls" value="skyrim">
+                <input type="radio" id="skyrim" name="elder_scrolls" value="skyrim" class="respuestaCorrecta">
                 <label for="skyrim" class="label-bg-second">Skyrim</label>
                 <input type="radio" id="morrowind" name="elder_scrolls" value="morrowind">
                 <label class="label-bg-third" for="morrowind">Morrowind</label>
@@ -54,7 +54,7 @@
             </fieldset>
             <fieldset class="quiz-fieldset">
                 <legend class="legend-quiz pregunta-cuatro">¿Que personaje mata a Modi(hijo de thor) en el 'God of War 4'?</legend>
-                <input type="radio" id="atreus" name="god_of_war" value="atreus">
+                <input type="radio" id="atreus" name="god_of_war" value="atreus" class="respuestaCorrecta">
                 <label for="atreus" class="label-bg-first">Atreus</label>
                 <input type="radio" id="baldur" name="god_of_war" value="baldur">
                 <label for="baldur" class="label-bg-second">Baldur</label>
@@ -69,7 +69,7 @@
                 <legend class="legend-quiz pregunta-cinco">¿Completa la frase de Yoda 'El mejor profesor, el ... es'?</legend>
                 <input type="radio" id="leer" name="frase_yoda" value="leer">
                 <label for="leer" class="label-bg-first">Leer</label>
-                <input type="radio" id="fracaso" name="frase_yoda" value="fracaso">
+                <input type="radio" id="fracaso" name="frase_yoda" value="fracaso" class="respuestaCorrecta">
                 <label for="fracaso" class="label-bg-second">Fracaso</label>
                 <input type="radio" id="entrenar" name="frase_yoda" value="entrenar">
                 <label class="label-bg-third" for="entrenar">Entrenar</label>
@@ -82,7 +82,7 @@
                 <legend class="legend-quiz pregunta-seis">¿Segun Oogway que es lo unico que no se puede controlar?</legend>
                 <input type="radio" id="paciencia" name="kung_fu_panda_frase" value="paciencia">
                 <label for="paciencia" class="label-bg-first">La Paciencia</label>
-                <input type="radio" id="tiempo" name="kung_fu_panda_frase" value="tiempo">
+                <input type="radio" id="tiempo" name="kung_fu_panda_frase" value="tiempo" class="respuestaCorrecta">
                 <label for="tiempo" class="label-bg-second">El Tiempo</label>
                 <input type="radio" id="destino" name="kung_fu_panda_frase" value="destino">
                 <label class="label-bg-third" for="destino">El Destino</label>
@@ -97,13 +97,14 @@
                 <label for="trecientosnoventa" class="label-bg-first">390</label>
                 <input type="radio" id="sesentaysiete" name="huesos_del_humano" value="67">
                 <label for="sesentaysiete" class="label-bg-second">67</label>
-                <input type="radio" id="doscientosocho" name="huesos_del_humano" value="208">
+                <input type="radio" id="doscientosocho" name="huesos_del_humano" value="208" class="respuestaCorrecta">
                 <label class="label-bg-third" for="doscientosocho">208</label>
                 <input type="radio" id="cientocuarentaycinco" name="huesos_del_humano" value="145">
                 <label class="label-bg-forth" for="cientocuarentaycinco">145</label>
                 <button type="button" class="button-atras">Atras</button>
-                <button type="submit">Comprobar!!</button>
+                <button type="submit" class="button-comprobacion">Comprobar!!</button>
             </fieldset>
+            <button type="reset">Intentar de nuevo</button>
         </form>
     </main>
     <script src="scripts.js"></script>

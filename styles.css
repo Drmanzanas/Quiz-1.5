@@ -109,7 +109,7 @@ html {
 }
 
 .quiz-form {
-    height: 4900px;
+    height: 5000px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -118,6 +118,7 @@ html {
     position: relative;
     top: 0;
     transition: all 1s linear;
+    background-color: #0b132b;
 }
 
 
@@ -169,6 +170,21 @@ label {
     cursor: pointer;
 }
 
+@keyframes titilar {
+    25% {
+        opacity: .4;
+    }
+    50% {
+        opacity: .9;
+    }
+    75% {
+        opacity: .3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .label-bg-first {
     background-color: #f94144;
 }
@@ -203,7 +219,9 @@ button:hover {
     color: #20423e;
 }
 
-
+button:last-of-type {
+    align-self: center;
+}
 
 @media screen and (min-width: 768px) {
     .quiz-fieldset {
