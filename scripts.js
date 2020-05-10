@@ -26,20 +26,36 @@ $flechita.addEventListener('click', function(event) {
     window.location.href = "#comienzo";
 })
 
-let $button = document.querySelectorAll('button[type="button"]');
+let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
+let $buttonAtras = document.querySelectorAll('.button-atras');
 
 function subirForm(array) {
     let $form = document.getElementsByTagName('form')[0];
     for(let i = 0; i < array.length; i++) {
         array[i].addEventListener('click',function() {
-            console.log(array[i], i)
-            if(i == 0) {
-               return $form.style.top = `-${i + 7}00px`;
-            } else {
-                 return $form.style.top = '-' + (i * 7) + '00px';
+            if(i >= 0) {
+                let x = i + 1;
+                array[i].parentNode.style.opacity = '0';
+                array[i].parentNode.nextElementSibling.style.opacity = '1';
+                return $form.style.top = '-' + (x * 7) + '00px';
             }
         })
     }
 }
 
-subirForm($button)
+subirForm($buttonSiguiente)
+
+function atrasForm(array) {
+    let $form = document.getElementsByTagName('form')[0];
+    for(let i = 0; i < array.length; i++) {
+        array[i].addEventListener('click',function() {
+            if(i >= 0) {
+                array[i].parentNode.previousElementSibling.style.opacity = '1';
+                array[i].parentNode.style.opacity = '0';
+                return $form.style.top = '-' + (i * 7) + '00px';
+            }
+        })
+    }
+}
+
+atrasForm($buttonAtras)
