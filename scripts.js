@@ -75,57 +75,102 @@ let preguntasNuevas = [
 ]
 
 function meterPreguntas(array) {
-    let $form = document.getElementsByTagName('form')[0];
-    $form.style.height = 5000 + (array.length * 700) + 'px';
-    for(let i = 0; i < array.length; i++) {
-        let sectionNueva = document.createElement('section');
-        sectionNueva.className = "quiz-fieldset";
-        let legendNuevo = document.createElement('legend');
-        legendNuevo.className = 'legend-quiz';
-        legendNuevo.innerHTML = array[i].title;
-        sectionNueva.appendChild(legendNuevo)
-        for(let x = 0; x < array[i].respuestas.length; x++){
-            let inputNuevo = document.createElement('input');
-            inputNuevo.setAttribute('type', 'radio')
-            inputNuevo.setAttribute('id',array[i].respuestas[x])
-            inputNuevo.setAttribute('name',array[i].name)
-            inputNuevo.setAttribute('value',array[i].respuestas[x])
-            if(x  == array[i].correcta - 1){
-                inputNuevo.setAttribute('class',"respuestaCorrecta")
+    let $preguntasEstan = document.getElementsByClassName('preguntas-agregadas');
+    if($preguntasEstan.length !== array.length){
+        let $form = document.getElementsByTagName('form')[0];
+        $form.style.height = 5000 + (array.length * 700) + 'px';
+        for(let i = 0; i < array.length; i++) {
+            let sectionNueva = document.createElement('section');
+            sectionNueva.className = "quiz-fieldset";
+            let legendNuevo = document.createElement('legend');
+            legendNuevo.className = 'legend-quiz';
+            legendNuevo.innerHTML = array[i].title;
+            sectionNueva.appendChild(legendNuevo)
+            for(let x = 0; x < array[i].respuestas.length; x++){
+                let inputNuevo = document.createElement('input');
+                inputNuevo.setAttribute('type', 'radio')
+                inputNuevo.setAttribute('id',array[i].respuestas[x])
+                inputNuevo.setAttribute('name',array[i].name)
+                inputNuevo.setAttribute('value',array[i].respuestas[x])
+                if(x  == array[i].correcta - 1){
+                    inputNuevo.setAttribute('class',"respuestaCorrecta")
+                }
+                sectionNueva.appendChild(inputNuevo)
+                let labelNuevo = document.createElement('label');
+                labelNuevo.setAttribute('for',array[i].respuestas[x])
+                labelNuevo.innerHTML = array[i].respuestas[x];
+                if(x == 0) {
+                    labelNuevo.setAttribute('class',"label-bg-first")
+                } else if(x == 1) {
+                    labelNuevo.setAttribute('class',"label-bg-second")
+                } else if(x == 2) {
+                    labelNuevo.setAttribute('class',"label-bg-third")
+                } else if(x == 3) {
+                    labelNuevo.setAttribute('class',"label-bg-forth")
+                }
+                sectionNueva.appendChild(labelNuevo)
+                console.log(sectionNueva)
             }
-            sectionNueva.appendChild(inputNuevo)
-            let labelNuevo = document.createElement('label');
-            labelNuevo.setAttribute('for',array[i].respuestas[x])
-            labelNuevo.innerHTML = array[i].respuestas[x];
-            if(x == 0) {
-                labelNuevo.setAttribute('class',"label-bg-first")
-            } else if(x == 1) {
-                labelNuevo.setAttribute('class',"label-bg-second")
-            } else if(x == 2) {
-                labelNuevo.setAttribute('class',"label-bg-third")
-            } else if(x == 3) {
-                labelNuevo.setAttribute('class',"label-bg-forth")
-            }
-            sectionNueva.appendChild(labelNuevo)
+            let buttonSiguienteNuevo = document.createElement('button');
+            let buttonAtrasNuevo = document.createElement('button');
+            buttonAtrasNuevo.setAttribute('class','button-atras')
+            buttonAtrasNuevo.innerHTML = 'Atras';
+            buttonSiguienteNuevo.setAttribute('class','button-siguiente');
+            buttonSiguienteNuevo.innerHTML = 'Siguiente';
+            buttonAtrasNuevo.setAttribute('type', 'button');
+            buttonSiguienteNuevo.setAttribute('type', 'button');
+            sectionNueva.classList.add('preguntas-agregadas');
+            sectionNueva.appendChild(buttonAtrasNuevo)
+            sectionNueva.appendChild(buttonSiguienteNuevo)
             console.log(sectionNueva)
+            document.getElementsByClassName('quiz-form')[0].insertBefore(sectionNueva,document.getElementsByClassName('quiz-form')[0].childNodes[2]);
         }
-        let buttonSiguienteNuevo = document.createElement('button');
-        let buttonAtrasNuevo = document.createElement('button');
-        buttonAtrasNuevo.setAttribute('class','button-atras')
-        buttonAtrasNuevo.innerHTML = 'Atras';
-        buttonSiguienteNuevo.setAttribute('class','button-siguiente');
-        buttonSiguienteNuevo.innerHTML = 'Siguiente';
-        buttonAtrasNuevo.setAttribute('type', 'button');
-        buttonSiguienteNuevo.setAttribute('type', 'button');
-        sectionNueva.appendChild(buttonAtrasNuevo)
-        sectionNueva.appendChild(buttonSiguienteNuevo)
-        console.log(sectionNueva)
-        document.getElementsByClassName('quiz-form')[0].insertBefore(sectionNueva,document.getElementsByClassName('quiz-form')[0].childNodes[2]);
-    }
+    } 
 
 }
 
 meterPreguntas(preguntasNuevas)
+for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
+    document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'none';
+}
+
+let botonesHeader = document.getElementsByClassName('button-header');
+function elegirModo(array) {
+    for(let i = 0; i < array.length; i++){
+        array[i].style.backgroundColor = 'darkgreen';
+        array[i].addEventListener('click', function(event){
+            event.preventDefault();
+           if(this.style.backgroundColor == 'darkgreen' && i == 0){
+               this.style.backgroundColor = '#220901'
+               this.style.color = 'blue'
+               array[1].style.backgroundColor = 'darkgreen'
+               array[1].style.color = '#f4f1de'
+           } else if(this.style.backgroundColor == 'darkgreen' && i == 1){
+                this.style.backgroundColor = '#220901'
+                this.style.color = 'blue'
+                for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
+                    document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'flex';
+                }
+                array[0].style.backgroundColor = 'darkgreen'
+                array[0].style.color = '#f4f1de'
+           } else if (this.style.backgroundColor == 'rgb(34, 9, 1)' && i == 0){
+               this.style.backgroundColor = 'darkgreen';
+               this.style.color = '#f4f1de';
+           } else if (this.style.backgroundColor == 'rgb(34, 9, 1)' && i == 1){
+            this.style.backgroundColor = 'darkgreen';
+            this.style.color = '#f4f1de';
+            for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
+                document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'none';
+            }
+        }
+        })
+           
+    }
+    
+}
+
+elegirModo(botonesHeader)
+
 
 let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
 let $buttonAtras = document.querySelectorAll('.button-atras');

@@ -223,6 +223,15 @@ button:last-of-type {
     align-self: center;
 }
 
+.tipo-juego {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-header {
+    background-color: #220901;
+}
+
 @media screen and (min-width: 768px) {
     .quiz-fieldset {
         flex-flow: row wrap;
@@ -238,6 +247,9 @@ button:last-of-type {
     button {
         width: 25vw;
         margin: 0;
+    }
+    .tipo-juego {
+        flex-direction: row;
     }
 }
 
