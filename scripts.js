@@ -90,14 +90,23 @@ function validacionRespuestas(event) {
     }
     let $form = document.getElementsByTagName('form')[0];
     let $main = document.getElementsByTagName('main')[0];
+    let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
+    let $buttonAtras = document.querySelectorAll('.button-atras');
     $form.style.top = '0';
     $form.style.height = 'fit-content';
     $main.style.overflow = 'visible';
+    for(let d = 0; d < $buttonSiguiente.length; d++){
+        $buttonSiguiente[d].style.visibility = 'hidden';
+    }
+    for(let k = 0; k < $buttonAtras.length; k++){
+        $buttonAtras[k].style.visibility = 'hidden';
+    }
 }
 
 let comprobarButton = document.querySelector('.button-comprobacion')
+let $form = document.getElementsByTagName('form')[0];
 console.log(comprobarButton)
-comprobarButton.addEventListener('click',validacionRespuestas)
+$form.addEventListener('submit',validacionRespuestas)
 
 document.querySelector('button[type="reset"]').addEventListener('click', function(event) {
     event.preventDefault();
