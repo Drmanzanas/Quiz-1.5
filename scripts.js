@@ -106,7 +106,9 @@ function validacionRespuestas(event) {
 let comprobarButton = document.querySelector('.button-comprobacion')
 let $form = document.getElementsByTagName('form')[0];
 console.log(comprobarButton)
-$form.addEventListener('submit',validacionRespuestas)
+$form.addEventListener('submit',function(event) {
+    validacionRespuestas(event)
+})
 
 document.querySelector('button[type="reset"]').addEventListener('click', function(event) {
     event.preventDefault();
