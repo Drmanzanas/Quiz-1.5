@@ -42,10 +42,10 @@ let preguntasNuevas = [
     {
         title: '¿Cuantos mundiales de futbol tiene brazil?',
         respuestas: [
-            'seis',
-            'dos',
-            'cuatro',
-            'cinco'
+            '6',
+            '2',
+            '4',
+            '5'
         ],
         name: 'copas_mundial_brazil',
         correcta: 3
@@ -109,7 +109,6 @@ function meterPreguntas(array) {
                     labelNuevo.setAttribute('class',"label-bg-forth")
                 }
                 sectionNueva.appendChild(labelNuevo)
-                console.log(sectionNueva)
             }
             let buttonSiguienteNuevo = document.createElement('button');
             let buttonAtrasNuevo = document.createElement('button');
@@ -122,55 +121,102 @@ function meterPreguntas(array) {
             sectionNueva.classList.add('preguntas-agregadas');
             sectionNueva.appendChild(buttonAtrasNuevo)
             sectionNueva.appendChild(buttonSiguienteNuevo)
-            console.log(sectionNueva)
-            document.getElementsByClassName('quiz-form')[0].insertBefore(sectionNueva,document.getElementsByClassName('quiz-form')[0].childNodes[2]);
+            let posicionAnteUltima = document.getElementsByClassName('quiz-fieldset').length + 1;
+            document.getElementsByClassName('quiz-form')[0].insertBefore(sectionNueva,document.getElementsByClassName('quiz-form')[0].childNodes[posicionAnteUltima]);
         }
     } 
-
+    let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
+    let $buttonAtras = document.querySelectorAll('.button-atras');
+    subirForm($buttonSiguiente)
+    atrasForm($buttonAtras)
 }
 
-meterPreguntas(preguntasNuevas)
 for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
     document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'none';
 }
 
 let botonesHeader = document.getElementsByClassName('button-header');
-function elegirModo(array) {
+function elegirModo(array, funcionSubir, funcionBajar) {
     for(let i = 0; i < array.length; i++){
         array[i].style.backgroundColor = 'darkgreen';
-        array[i].addEventListener('click', function(event){
-            event.preventDefault();
+        array[i].addEventListener('click', function(){
            if(this.style.backgroundColor == 'darkgreen' && i == 0){
                this.style.backgroundColor = '#220901'
                this.style.color = 'blue'
+               let preguntasBorrar = document.getElementsByClassName('preguntas-agregadas');
+               for(let z = 0; z < preguntasBorrar.length; z++){
+               let niñoABorrar = preguntasBorrar[z]
+               niñoABorrar.remove()
+               }
+               let preguntasNoBorradasABorrar = document.getElementsByClassName('preguntas-agregadas');
+               for(let z = 0; z < preguntasNoBorradasABorrar.length; z++){
+                   let niñoABorrar = preguntasNoBorradasABorrar[z]
+                   niñoABorrar.remove()
+               }
+               if(document.getElementsByClassName('preguntas-agregadas').length > 0){
+                   for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
+                       let niñoABorrar = document.getElementsByClassName('preguntas-agregadas')[z]
+                       niñoABorrar.remove()
+                   }
+               }
+               let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
+               funcionSubir($buttonSiguiente)
                array[1].style.backgroundColor = 'darkgreen'
                array[1].style.color = '#f4f1de'
            } else if(this.style.backgroundColor == 'darkgreen' && i == 1){
                 this.style.backgroundColor = '#220901'
                 this.style.color = 'blue'
-                for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
-                    document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'flex';
-                }
+                    if(document.getElementsByClassName('preguntas-agregadas').length == 0){
+                        meterPreguntas(preguntasNuevas)
+                    }
                 array[0].style.backgroundColor = 'darkgreen'
                 array[0].style.color = '#f4f1de'
            } else if (this.style.backgroundColor == 'rgb(34, 9, 1)' && i == 0){
                this.style.backgroundColor = 'darkgreen';
                this.style.color = '#f4f1de';
            } else if (this.style.backgroundColor == 'rgb(34, 9, 1)' && i == 1){
-            this.style.backgroundColor = 'darkgreen';
-            this.style.color = '#f4f1de';
-            for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
-                document.getElementsByClassName('preguntas-agregadas')[z].style.display = 'none';
+                this.style.backgroundColor = 'darkgreen';
+                this.style.color = '#f4f1de';
+                let preguntasBorrar = document.getElementsByClassName('preguntas-agregadas');
+                for(let z = 0; z < preguntasBorrar.length; z++){
+                let niñoABorrar = preguntasBorrar[z]
+                niñoABorrar.remove()
+                }
+                let preguntasNoBorradasABorrar = document.getElementsByClassName('preguntas-agregadas');
+                for(let z = 0; z < preguntasNoBorradasABorrar.length; z++){
+                    let niñoABorrar = preguntasNoBorradasABorrar[z]
+                    niñoABorrar.remove()
+                }
+                if(document.getElementsByClassName('preguntas-agregadas').length > 0){
+                    for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length; z++){
+                        let niñoABorrar = document.getElementsByClassName('preguntas-agregadas')[z]
+                        niñoABorrar.remove()
+                    }
+                }
             }
-        }
         })
            
     }
-    
+
+    let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
+    let $buttonAtras = document.querySelectorAll('.button-atras');
+    console.log($buttonSiguiente)
+    funcionBajar($buttonAtras)
+    funcionSubir($buttonSiguiente)
 }
 
-elegirModo(botonesHeader)
 
+let $form = document.getElementsByTagName('form')[0];
+let $preguntasNuevas = document.getElementsByClassName('preguntas-agregadas');
+for(let circulo = 0; circulo < $preguntasNuevas.length; circulo++){
+    if($preguntasNuevas[circulo].style.display == 'none'){
+        $form.style.height = 5000 +'px';
+    } else {
+        $form.style.height = 5000 + (array.length * 700) + 'px';
+        $preguntasNuevas[circulo].style.position = 'relative';
+    }
+
+}
 
 let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
 let $buttonAtras = document.querySelectorAll('.button-atras');
@@ -199,7 +245,6 @@ function subirForm(array) {
     }
 }
 
-subirForm($buttonSiguiente)
 
 function atrasForm(array) {
     let $form = document.getElementsByTagName('form')[0];
@@ -214,9 +259,10 @@ function atrasForm(array) {
     }
 }
 
-atrasForm($buttonAtras)
 
-// Comprobar datos, validar
+elegirModo(botonesHeader,subirForm,atrasForm)
+
+// -------------- COMPROBAR DATOS VALIDAAR ------------
 
 function validacionRespuestas(event) {
     event.preventDefault();
@@ -250,7 +296,6 @@ function validacionRespuestas(event) {
 }
 
 let comprobarButton = document.querySelector('.button-comprobacion')
-let $form = document.getElementsByTagName('form')[0];
 $form.addEventListener('submit',function(event) {
     validacionRespuestas(event)
 })
