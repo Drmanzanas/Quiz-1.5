@@ -136,6 +136,7 @@ for(let z = 0; z < document.getElementsByClassName('preguntas-agregadas').length
 }
 
 let botonesHeader = document.getElementsByClassName('button-header');
+
 function elegirModo(array, funcionSubir, funcionBajar) {
     for(let i = 0; i < array.length; i++){
         array[i].style.backgroundColor = 'darkgreen';
@@ -200,7 +201,6 @@ function elegirModo(array, funcionSubir, funcionBajar) {
 
     let $buttonSiguiente = document.querySelectorAll('.button-siguiente');
     let $buttonAtras = document.querySelectorAll('.button-atras');
-    console.log($buttonSiguiente)
     funcionBajar($buttonAtras)
     funcionSubir($buttonSiguiente)
 }
@@ -295,12 +295,77 @@ function validacionRespuestas(event) {
     }
 }
 
+
 let comprobarButton = document.querySelector('.button-comprobacion')
 $form.addEventListener('submit',function(event) {
     validacionRespuestas(event)
+    let articleRespuestas = document.createElement('article');
+    articleRespuestas.style.height = '600px';
+    articleRespuestas.style.width = '80vw';
+    articleRespuestas.style.backgroundColor = 'rgba(134,126,231,1)';
+    articleRespuestas.style.position = 'absolute';
+    let $inputs = this.querySelectorAll('section > input[type="radio"]:checked')
+    let respuestas = document.getElementsByClassName('respuestaCorrecta');
+    let titulo = document.createElement('h1');
+    titulo.innerHTML = 'Respuestas Elegidas';
+    titulo.style.width = '100%';
+    titulo.style.textAlign = 'center';
+    titulo.style.height = 'fit-content';
+    articleRespuestas.appendChild(titulo);
+    let sectionCorrect = document.createElement('section');
+    let sectionInCorrect = document.createElement('section');
+    let tituloCorr = document.createElement('h2');
+    tituloCorr.innerHTML = 'Estas son las respuestas Correctas'
+    let tituloInCorr = document.createElement('h2');
+    tituloInCorr.innerHTML = 'Estas son las respuestas InCorrectas'
+    tituloCorr.style.fontSize = '20px';
+    tituloInCorr.style.fontSize = '20px';
+    sectionCorrect.appendChild(tituloCorr)
+    sectionInCorrect.appendChild(tituloInCorr)
+    for(let i = 0; i < respuestas.length; i++){
+        if($inputs[i].value == respuestas[i].value) {
+            respuestaCorr = document.createElement('p');
+            respuestaCorr.innerHTML = (i+1) + ' ' + ($inputs[i].value);
+            respuestaCorr.style.color = 'white';
+            respuestaCorr.style.textTransform = 'Uppercase';
+            sectionCorrect.appendChild(respuestaCorr)
+        } else {
+            respuestaInCorr = document.createElement('p');
+            respuestaInCorr.innerHTML = (i+1) + ' ' + ($inputs[i].value);
+            respuestaInCorr.style.color = 'white';
+            respuestaInCorr.style.textTransform = 'Uppercase';
+            sectionInCorrect.appendChild(respuestaInCorr)
+        }
+    }
+    sectionCorrect.style.width = '50%';
+    sectionInCorrect.style.width = '45%';
+    sectionCorrect.style.border = '1px solid black';
+    sectionInCorrect.style.border = '1px solid black';
+    articleRespuestas.appendChild(sectionCorrect);
+    articleRespuestas.appendChild(sectionInCorrect);
+    articleRespuestas.style.display = 'flex';
+    articleRespuestas.style.flexFlow = 'row wrap';
+    let cruz = document.createElement('div');
+    cruz.style.borderRadius = '50%';
+    cruz.style.backgroundColor = 'blue';
+    cruz.style.height = '30px';
+    cruz.style.width = '30px';
+    cruz.style.position = 'absolute';
+    cruz.style.top = '0';
+    cruz.style.left = '90%';
+    cruz.style.cursor = 'pointer';
+    cruz.addEventListener('click', function(event){
+        event.preventDefault();
+        articleRespuestas.style.display = 'none';
+    })
+
+    articleRespuestas.appendChild(cruz);
+
+    this.appendChild(articleRespuestas)
 })
 
 document.querySelector('button[type="reset"]').addEventListener('click', function(event) {
     event.preventDefault();
     window.location.reload();
 })
+
